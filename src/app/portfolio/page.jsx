@@ -26,7 +26,7 @@ const items = [
     color: "from-purple-500 to-purple-600",
     title: "Social Media Platform",
     desc: "Share your posts and stay on contact with others. ",
-    img: "https://media.istockphoto.com/id/1277665587/nl/foto/verbonden-blijven.jpg?s=2048x2048&w=is&k=20&c=o-gLsjcu4JUjMvqWZF14-uIVu28SKXMWQmIqt9Evaj0=",
+    img: "https://images.pexels.com/photos/1542252/pexels-photo-1542252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     link: "https://github.com/PROuserR/Social-Media-Platform",
   },
   {
