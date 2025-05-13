@@ -1,8 +1,8 @@
-import { Krona_One } from "next/font/google";
+import { Newsreader } from "next/font/google";
 import "./globals.css";
 import TransitionProvider from "@/components/transitionProvider";
 
-const KronaOneFont = Krona_One({ subsets: ["latin"], weight: "400" });
+const NewsreaderFont = Newsreader({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
   title: "Rami Alshaar's Portfolio",
@@ -15,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`w-screen h-screen bg-gradient-to-b from-blue-100 to-red-200 ${KronaOneFont.className}`}>
+      <body className={`bg-gradient-to-b from-blue-100 to-red-200 ${NewsreaderFont.className}`}>
         <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>

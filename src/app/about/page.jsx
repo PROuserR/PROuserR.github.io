@@ -25,13 +25,13 @@ const AboutPage = () => {
       {/* CONTAINER */}
       <div className="h-full overflow-scroll lg:flex" ref={containerRef}>
         {/* TEXT CONTAINER */}
-        <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2">
+        <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:w-2/3 lg:pr-0 xl:w-1/2">
           {/* BIOGRAPHY CONTAINER */}
           <div className="flex flex-col gap-12 justify-center">
             {/* BIOGRAPHY TITLE */}
-            <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
+            <h1 className="font-bold text-4xl">BIOGRAPHY</h1>
             {/* BIOGRAPHY DESC */}
-            <p className="text-lg">
+            <p className="text-2xl">
               {`
               I'm a passionate frontend developer with experience in modern web
               technologies, including HTML, CSS, JavaScript, React, Next.js, and
@@ -43,7 +43,7 @@ const AboutPage = () => {
               `}
             </p>
             {/* BIOGRAPHY QUOTE */}
-            <span className="italic">
+            <span className="italic text-xl">
               Turning ideas into interactive experiences—one pixel at a time.
             </span>
             {/* BIOGRAPHY SCROLL SVG */}
@@ -87,49 +87,49 @@ const AboutPage = () => {
               animate={isSkillRefInView ? { x: 0 } : {}}
               className="flex gap-4 flex-wrap"
             >
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 JavaScript
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 TypeScript
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 React.js
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Next.js
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Bootstrap
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Tailwind CSS
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 GraphQL
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Zustand
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Framer Motion
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 React Query/ Tanstack
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 HTML/CSS
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Python
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Django
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Git
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Bash
               </div>
             </motion.div>
@@ -182,20 +182,20 @@ const AboutPage = () => {
                 {/* LEFT */}
                 <div className="w-1/3 ">
                   {/* JOB TITLE */}
-                  <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
+                  <div className="bg-white p-3 w-fit font-semibold rounded-b-lg rounded-s-lg">
                     Junior Frontend Developer
                   </div>
                   {/* JOB DESC */}
-                  <div className="p-3 text-sm italic">
+                  <div className="p-3 text-xl italic">
                     Creating interactive and responsive webpages using React.js
                     and Next.js
                   </div>
                   {/* JOB DATE */}
-                  <div className="p-3 text-red-400 text-sm font-semibold">
+                  <div className="p-3 text-red-400 text-xl font-semibold">
                     2024 - 2025
                   </div>
                   {/* JOB COMPANY */}
-                  <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
+                  <div className="p-1 rounded bg-white text-xl font-semibold w-fit">
                     ArachnoTech
                   </div>
                 </div>

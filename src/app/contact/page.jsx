@@ -40,7 +40,7 @@ const ContactPage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+      <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20">
         {/* TEXT CONTAINER */}
         <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-6xl">
           <div>
@@ -58,14 +58,14 @@ const ContactPage = () => {
                 {letter}
               </motion.span>
             ))}
-            😊
+            👋
           </div>
         </div>
         {/* FORM CONTAINER */}
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24"
+          className="h-1/2 lg:h-4/5 my-auto lg:w-1/2 bg-red-50 rounded-xl text-2xl flex flex-col gap-8 justify-center p-24"
         >
           <span>Dear Rami Dev,</span>
           <textarea
