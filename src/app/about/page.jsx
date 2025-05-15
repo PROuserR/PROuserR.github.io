@@ -87,49 +87,49 @@ const AboutPage = () => {
               animate={isSkillRefInView ? { x: 0 } : {}}
               className="flex gap-4 flex-wrap"
             >
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 JavaScript
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 TypeScript
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 React.js
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 Next.js
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 Bootstrap
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 Tailwind CSS
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 GraphQL
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 Zustand
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 Framer Motion
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 React Query/ Tanstack
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 HTML/CSS
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 Python
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 Django
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 Git
               </div>
-              <div className="rounded  p-2 text-xl cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+              <div className="rounded  p-2 text-xl cursor-pointer bg-red-950 text-white hover:bg-white hover:text-black">
                 Bash
               </div>
             </motion.div>
@@ -178,11 +178,11 @@ const AboutPage = () => {
               className=""
             >
               {/* EXPERIENCE LIST ITEM */}
-              <div className="flex justify-between h-48">
+              <div className="flex justify-between h-fit">
                 {/* LEFT */}
                 <div className="w-1/3 ">
                   {/* JOB TITLE */}
-                  <div className="bg-white p-3 w-fit font-semibold rounded-b-lg rounded-s-lg">
+                  <div className="bg-white dark:text-red-900 p-3 w-fit font-semibold rounded-b-lg rounded-s-lg">
                     Junior Frontend Developer
                   </div>
                   {/* JOB DESC */}
@@ -191,11 +191,9 @@ const AboutPage = () => {
                     and Next.js
                   </div>
                   {/* JOB DATE */}
-                  <div className="p-3 text-red-400 text-xl font-semibold">
-                    2024 - 2025
-                  </div>
+                  <div className="p-3 text-xl font-semibold">2024 - 2025</div>
                   {/* JOB COMPANY */}
-                  <div className="p-1 rounded bg-white text-xl font-semibold w-fit">
+                  <div className="p-1 rounded dark:text-red-900 bg-white text-xl font-semibold w-fit">
                     ArachnoTech
                   </div>
                 </div>

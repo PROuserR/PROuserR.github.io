@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const links = [
   { url: "/", title: "Home" },
@@ -14,7 +15,13 @@ const links = [
 ];
 
 const Navbar = () => {
+  const [theme, setTheme] = useState(localStorage.theme);
+
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    toggleDarkMode();
+  }, []);
 
   const topVariants = {
     closed: {
@@ -68,6 +75,21 @@ const Navbar = () => {
     },
   };
 
+  const toggleDarkMode = () => {
+    if (localStorage.theme == "light") localStorage.theme = "dark";
+    else localStorage.theme = "light";
+
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    document.documentElement.classList.toggle(
+      "dark",
+      localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+    );
+
+    setTheme(localStorage.theme);
+  };
+
   return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 text-2xl">
       {/* LINKS */}
@@ -88,6 +110,9 @@ const Navbar = () => {
         <Link href="/https://www.linkedin.com/in/rami-alshaar-5ab808187/">
           <Image src="/linkedin.png" alt="" width={24} height={24} />
         </Link>
+        <button onClick={toggleDarkMode}>
+          {theme === "light" ? <MdLightMode /> : <MdDarkMode />}
+        </button>
       </div>
       {/* RESPONSIVE MENU */}
       <div className="md:hidden">
@@ -118,7 +143,7 @@ const Navbar = () => {
             variants={listVariants}
             initial="closed"
             animate="opened"
-            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
+            className="absolute top-0 left-0 w-screen h-screen bg-red-950 text-red-200 flex flex-col items-center justify-center gap-8 text-4xl z-40"
           >
             {links.map((link) => (
               <motion.div

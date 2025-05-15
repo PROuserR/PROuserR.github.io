@@ -34,11 +34,14 @@ const Homepage = () => {
           <div className="w-full flex gap-4">
             <Link
               href="/portfolio"
-              className="p-4 rounded-lg ring-1 ring-black bg-black text-white"
+              className="p-4 rounded-lg ring-1 ring-black bg-red-950 text-white hover:shadow-xl shadow-red-400"
             >
               View My Work
             </Link>
-            <Link href="/contact" className="p-4 rounded-lg ring-1 ring-black">
+            <Link
+              href="/contact"
+              className="p-4 rounded-lg ring-1 ring-black dark:ring-red-300 hover:shadow-xl  shadow-red-400"
+            >
               Contact Me
             </Link>
           </div>
