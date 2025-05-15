@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -21,8 +20,10 @@ const Navbar = () => {
 
   useEffect(() => {
     toggleDarkMode();
-    if (typeof window !== "undefined") {
-      setTheme(window.localStorage);
+    try {
+      setTheme(localStorage.theme);
+    } catch (error) {
+      console.log(error);
     }
   }, []);
 
