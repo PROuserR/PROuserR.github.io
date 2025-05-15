@@ -16,14 +16,14 @@ const links = [
 
 const Navbar = () => {
   const [theme, setTheme] = useState();
-  if (typeof window !== "undefined") {
-    setTheme(window.localStorage)
-  }
 
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     toggleDarkMode();
+    if (typeof window !== "undefined") {
+      setTheme(window.localStorage);
+    }
   }, []);
 
   const topVariants = {
