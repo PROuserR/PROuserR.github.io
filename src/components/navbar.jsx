@@ -15,7 +15,7 @@ const links = [
 ];
 
 const Navbar = () => {
-  const [theme, setTheme] = useState(localStorage.theme);
+  const [theme, setTheme] = useState();
 
   const [open, setOpen] = useState(false);
 
