@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
@@ -18,7 +18,7 @@ const Navbar = () => {
   const [theme, setTheme] = useState(
     typeof localStorage !== "undefined"
       ? localStorage.getItem("theme")
-      : "dark"
+      : "light"
   );
 
   const [open, setOpen] = useState(false);
