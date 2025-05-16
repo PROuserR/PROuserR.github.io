@@ -31,6 +31,7 @@ const Navbar = () => {
       backgroundColor: "rgb(255,255,255)",
     },
   };
+
   const centerVariants = {
     closed: {
       opacity: 1,
@@ -146,18 +147,18 @@ const Navbar = () => {
             variants={listVariants}
             initial="closed"
             animate="opened"
-            className="absolute top-0 left-0 w-screen h-screen bg-red-950 text-red-200 flex flex-col items-center justify-center gap-8 text-4xl z-40"
+            className="absolute top-0 left-0 w-screen h-screen bg-red-950 text-red-200 flex flex-col items-center justify-center gap-6 text-4xl z-40"
           >
             <button className="absolute left-4 top-6" onClick={toggleDarkMode}>
-              {theme === "light" ? <MdLightMode className="w-10 h-10" /> : <MdDarkMode className="w-10 h-10" />}
+              {theme === "light" ? (
+                <MdLightMode className="w-10 h-10" />
+              ) : (
+                <MdDarkMode className="w-10 h-10" />
+              )}
             </button>
             {links.map((link) => (
-              <motion.div
-                variants={listItemVariants}
-                className=""
-                key={link.title}
-              >
-                <Link href={link.url}>{link.title}</Link>
+              <motion.div variants={listItemVariants} key={link.title} className="p-4">
+                <Link  href={link.url}>{link.title}</Link>
               </motion.div>
             ))}
           </motion.div>
