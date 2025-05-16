@@ -21,7 +21,7 @@ const Navbar = () => {
   const [theme, setTheme] = useState(
     typeof localStorage !== "undefined"
       ? localStorage.getItem("theme")
-      : "light"
+      : "dark"
   );
 
   const [open, setOpen] = useState(false);
@@ -79,8 +79,13 @@ const Navbar = () => {
   };
 
   const toggleDarkMode = () => {
-    if (localStorage.theme == "light") localStorage.theme = "dark";
-    else localStorage.theme = "light";
+    if (localStorage.theme == "light") {
+      localStorage.theme = "dark";
+      setTheme("dark");
+    } else {
+      localStorage.theme = "light";
+      setTheme("light");
+    }
 
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     document.documentElement.classList.toggle(
@@ -89,8 +94,6 @@ const Navbar = () => {
         (!("theme" in localStorage) &&
           window.matchMedia("(prefers-color-scheme: dark)").matches)
     );
-
-    setTheme(localStorage.theme);
   };
 
   return (
