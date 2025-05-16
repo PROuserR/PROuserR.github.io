@@ -14,7 +14,6 @@ const links = [
 ];
 
 const Navbar = () => {
-
   const [theme, setTheme] = useState(
     typeof localStorage !== "undefined"
       ? localStorage.getItem("theme")
@@ -140,6 +139,7 @@ const Navbar = () => {
             className="w-10 h-1 bg-black rounded origin-left"
           ></motion.div>
         </button>
+
         {/* MENU LIST */}
         {open && (
           <motion.div
@@ -148,6 +148,9 @@ const Navbar = () => {
             animate="opened"
             className="absolute top-0 left-0 w-screen h-screen bg-red-950 text-red-200 flex flex-col items-center justify-center gap-8 text-4xl z-40"
           >
+            <button className="absolute left-4 top-6" onClick={toggleDarkMode}>
+              {theme === "light" ? <MdLightMode className="w-10 h-10" /> : <MdDarkMode className="w-10 h-10" />}
+            </button>
             {links.map((link) => (
               <motion.div
                 variants={listItemVariants}
