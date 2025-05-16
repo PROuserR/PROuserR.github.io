@@ -14,9 +14,6 @@ const links = [
 ];
 
 const Navbar = () => {
-  useEffect(() => {
-    toggleDarkMode();
-  }, []);
 
   const [theme, setTheme] = useState(
     typeof localStorage !== "undefined"
