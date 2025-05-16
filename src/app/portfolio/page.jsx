@@ -62,7 +62,7 @@ const PortfolioPage = () => {
     >
       <div className="h-[600vh] relative" ref={ref}>
         <div className="absolute left-1/4 top-40 w-1/2 h-80 bg-gradient-to-r from-red-800 to-red-600 dark:from-red-600 dark:to-red-300 blur-3xl rounded-full -z-10 -rotate-[30deg]" />
-        <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-8xl text-center z-50">
+        <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-6xl xl:text-8xl text-center z-50">
           Projects 📝
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
@@ -88,13 +88,13 @@ const PortfolioPage = () => {
                   </p>
                   <div className="flex gap-x-12">
                     <Link href={item.link} className="w-fit">
-                      <button className="text-lg md:p-4 md:text-md lg:p-6 lg:text-xl bg-red-900 text-red-300 dark:bg-red-300 dark:text-red-900 font-semibold rounded-xl hover:shadow-xl shadow-red-400">
+                      <button className="text-lg p-2 md:p-4 md:text-md lg:p-6 lg:text-xl bg-red-900 text-red-300 dark:bg-red-300 dark:text-red-900 font-semibold rounded-xl hover:shadow-xl shadow-red-400">
                         View More 🚀
                       </button>
                     </Link>
                     {item?.blog && (
                       <Link href={item.blog} className="w-fit">
-                        <button className="text-lg md:p-4 md:text-md lg:p-6 lg:text-xl bg-red-900 text-red-300 dark:bg-red-300 dark:text-red-900 font-semibold rounded-xl hover:shadow-xl shadow-red-400">
+                        <button className="text-lg p-2 md:p-4 md:text-md lg:p-6 lg:text-xl bg-red-900 text-red-300 dark:bg-red-300 dark:text-red-900 font-semibold rounded-xl hover:shadow-xl shadow-red-400">
                           See Blog 📃
                         </button>
                       </Link>
@@ -117,8 +117,8 @@ const PortfolioPage = () => {
         </div>
       </div>
       <div className="flex w-screen h-[125vh] gap-16 items-center justify-center text-center">
-        <div className="flex flex-col absolute left-24 z-10 gap-y-12">
-          <h1 className="text-6xl italic text-red-950">Do you have a project?</h1>
+        <div className="flex flex-col absolute left-2 xl:left-24 z-10 gap-y-12">
+          <h1 className="text-4xl xl:text-6xl italic text-red-950">Do you have a project?</h1>
           <Link
             href="/contact"
             className="text-4xl bg-red-300 dark:bg-red-800 p-4 w-fit mx-auto rounded-2xl hover:shadow-2xl shadow-gray-500"

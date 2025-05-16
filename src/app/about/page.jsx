@@ -175,7 +175,6 @@ const AboutPage = () => {
             <motion.div
               initial={{ x: "-300px" }}
               animate={isExperienceRefInView ? { x: "0" } : {}}
-              className=""
             >
               {/* EXPERIENCE LIST ITEM */}
               <div className="flex justify-between h-fit">
