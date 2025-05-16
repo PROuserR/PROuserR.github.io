@@ -18,7 +18,7 @@ const TransitionProvider = ({ children }) => {
           className="h-screen w-screen fixed bg-red-950 rounded-b-[100px] z-40"
           animate={{ height: "0vh" }}
           exit={{ height: "140vh" }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         />
         <motion.div
           className="fixed m-auto top-0 bottom-0 left-0 right-0 text-red-200 text-8xl cursor-default z-50 w-fit h-fit"

@@ -14,18 +14,15 @@ const links = [
 ];
 
 const Navbar = () => {
-  const [theme, setTheme] = useState();
-
-  const [open, setOpen] = useState(false);
-
+  let getThemefromLocalStorage;
   useEffect(() => {
     toggleDarkMode();
-    try {
-      setTheme(localStorage.theme);
-    } catch (error) {
-      console.log(error);
-    }
+    getThemefromLocalStorage = localStorage.theme ? localStorage.theme : null;
   }, []);
+
+  const [theme, setTheme] = useState(getThemefromLocalStorage);
+
+  const [open, setOpen] = useState(false);
 
   const topVariants = {
     closed: {
