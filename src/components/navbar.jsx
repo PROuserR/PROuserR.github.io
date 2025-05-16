@@ -18,7 +18,7 @@ const Navbar = () => {
     toggleDarkMode();
   }, []);
 
-  const [theme, setTheme] = useState(localStorage ? localStorage.theme : "light");
+  const [theme, setTheme] = useState(localStorage.theme ? localStorage.theme : "light");
 
   const [open, setOpen] = useState(false);
 
