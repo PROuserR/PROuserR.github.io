@@ -6,9 +6,9 @@ import emailjs from "@emailjs/browser";
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [userMessage, setUserMessage] = useState("");
+  const [userEmail, setUserEmail] = useState("");
   const text = "Say Hello";
-
-  const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -16,18 +16,22 @@ const ContactPage = () => {
     setSuccess(false);
 
     emailjs
-      .sendForm(
+      .send(
         process.env.NEXT_PUBLIC_SERVICE_ID,
         process.env.NEXT_PUBLIC_TEMPLATE_ID,
-        form.current,
+        {
+          user_message: userMessage,
+          user_email: userEmail,
+          email: "rshaar559@gmail.com",
+        },
         process.env.NEXT_PUBLIC_PUBLIC_KEY
       )
       .then(
         () => {
           setSuccess(true);
-          form.current.reset();
         },
-        () => {
+        (error) => {
+          console.error(error);
           setError(true);
         }
       );
@@ -64,7 +68,6 @@ const ContactPage = () => {
         {/* FORM CONTAINER */}
         <form
           onSubmit={sendEmail}
-          ref={form}
           className="h-4/5 my-auto lg:w-1/2 bg-red-50 dark:bg-red-950 rounded-xl text-xl xl:text-2xl flex flex-col gap-y-4 xl:gap-y-8 justify-center p-10 xl:p-24"
         >
           <span>Dear Rami,</span>
@@ -72,12 +75,14 @@ const ContactPage = () => {
             rows={6}
             className="bg-transparent border-b-2 border-b-black outline-none resize-none"
             name="user_message"
+            onChange={(e) => setUserMessage(e.target.value)}
           />
           <span>My mail address is:</span>
           <input
             name="user_email"
-            type="text"
+            type="email"
             className="bg-transparent border-b-2 border-b-black outline-none"
+            onChange={(e) => setUserEmail(e.target.value)}
           />
           <span>Regards</span>
           <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4">
