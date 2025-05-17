@@ -94,16 +94,16 @@ const Navbar = () => {
   };
 
   return (
-    <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 text-2xl">
+    <div className="h-full w-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 text-2xl">
       {/* LINKS */}
-      <div className="hidden md:flex gap-4 w-fit">
+      <div className="hidden md:flex gap-4 w-1/3">
         {links.map((link) => (
           <NavLink link={link} key={link.title} />
         ))}
       </div>
       {/* LOGO */}
-      <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
-        <Image src="/icon.png" alt="logo" width={48} height={48} />
+      <div className="md:hidden lg:flex xl:w-1/3">
+        <Image src="/icon.png" className="mx-auto" alt="logo" width={48} height={48} />
       </div>
       {/* SOCIAL */}
       <div className="hidden justify-end md:flex gap-4 w-1/3">
