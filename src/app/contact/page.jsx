@@ -1,14 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const [userMessage, setUserMessage] = useState("");
   const [userEmail, setUserEmail] = useState("");
-  const text = "Say Hello";
+  const { t } = useTranslation();
+  const text = t("sayHello");
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -68,26 +70,23 @@ const ContactPage = () => {
         {/* FORM CONTAINER */}
         <form
           onSubmit={sendEmail}
-          className="h-4/5 my-auto lg:w-1/2 bg-red-50 dark:bg-red-950 rounded-xl text-xl xl:text-2xl flex flex-col gap-y-4 xl:gap-y-8 justify-center p-10 xl:p-24"
+          className="h-4/5 my-auto lg:w-1/2 bg-red-50 dark:bg-red-950 rounded-xl text-xl xl:text-2xl flex flex-col gap-y-4 xl:gap-y-8 justify-center p-10"
         >
-          <span>Dear Rami,</span>
+          <label>{t("dearRami")}</label>
           <textarea
-            rows={6}
-            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
+            className="bg-transparent border-b-2 border-b-black outline-none"
             name="user_message"
             onChange={(e) => setUserMessage(e.target.value)}
           />
-          <span>My mail address is:</span>
+          <span>{t("myEmailAdressIs")}</span>
           <input
             name="user_email"
             type="email"
             className="bg-transparent border-b-2 border-b-black outline-none"
             onChange={(e) => setUserEmail(e.target.value)}
           />
-          <span>Regards</span>
-          <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4">
-            Send
-          </button>
+          <span>{t("regards")}</span>
+          <button className="bg-red-500 rounded font-semibold p-4">{t("send")}</button>
           {success && (
             <span className="text-green-600 font-semibold">
               Your message has been sent successfully!

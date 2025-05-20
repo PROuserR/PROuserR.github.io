@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import Navbar from "./navbar";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import "../locale/i18n";
 
 const TransitionProvider = ({ children }) => {
   const pathName = usePathname();

@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { changeLanguage } from "i18next";
 
 const links = [
   { url: "/", title: "Home" },
@@ -14,11 +15,12 @@ const links = [
 ];
 
 const Navbar = () => {
-  const [theme, setTheme] = useState(
-    typeof localStorage !== "undefined"
-      ? localStorage.getItem("theme")
-      : "light"
-  );
+  const [theme, setTheme] = useState();
+
+  useEffect(() => {
+    toggleDarkMode();
+    console.log(window.matchMedia("(prefers-color-scheme: dark)").matches);
+  }, []);
 
   const [open, setOpen] = useState(false);
 
@@ -79,9 +81,17 @@ const Navbar = () => {
     if (localStorage.theme == "light") {
       localStorage.theme = "dark";
       setTheme("dark");
-    } else {
+    } else if (localStorage.theme == "dark") {
       localStorage.theme = "light";
       setTheme("light");
+    } else {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        localStorage.theme = "light";
+        setTheme("light");
+      } else {
+        localStorage.theme = "dark";
+        setTheme("dark");
+      }
     }
 
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -91,6 +101,10 @@ const Navbar = () => {
         (!("theme" in localStorage) &&
           window.matchMedia("(prefers-color-scheme: dark)").matches)
     );
+  };
+
+  const handleLanguageChange = (e) => {
+    changeLanguage(e.target.value);
   };
 
   return (
@@ -129,6 +143,10 @@ const Navbar = () => {
             <MdDarkMode className="text-red-200" />
           )}
         </motion.button>
+        <select className="bg-transparent" onChange={handleLanguageChange}>
+          <option value="en">English</option>
+          <option value="ar">Arabic</option>
+        </select>
       </div>
       {/* RESPONSIVE MENU */}
       <div className="md:hidden">

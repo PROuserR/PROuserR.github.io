@@ -2,12 +2,13 @@
 import Brain from "@/components/brain";
 import { motion, useInView, useScroll } from "framer-motion";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const AboutPage = () => {
   const containerRef = useRef();
 
   const { scrollYProgress } = useScroll({ container: containerRef });
-
+  const { t } = useTranslation();
   const skillRef = useRef();
   // const isSkillRefInView = useInView(skillRef, {once:true});
   const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
@@ -29,22 +30,14 @@ const AboutPage = () => {
           {/* BIOGRAPHY CONTAINER */}
           <div className="flex flex-col gap-12 justify-center">
             {/* BIOGRAPHY TITLE */}
-            <h1 className="font-bold text-4xl">BIOGRAPHY</h1>
+            <h1 className="font-bold text-4xl">{t("biography")}</h1>
             {/* BIOGRAPHY DESC */}
             <p className="text-2xl">
-              {`
-              I'm a passionate frontend developer with experience in modern web
-              technologies, including HTML, CSS, JavaScript, React, Next.js, and
-              Tailwind CSS. I enjoy crafting clean, efficient, and responsive
-              designs while constantly learning and embracing cutting-edge
-              solutions. Problem-solving and creativity drive me, and I'm
-              dedicated to delivering high-quality digital experiences that make
-              an impact.
-              `}
+              {t("subBiography")}
             </p>
             {/* BIOGRAPHY QUOTE */}
             <span className="italic text-xl">
-              Turning ideas into interactive experiences—one pixel at a time.
+              {t("subBiographyComment")}
             </span>
             {/* BIOGRAPHY SCROLL SVG */}
             <motion.svg
@@ -79,7 +72,7 @@ const AboutPage = () => {
               transition={{ delay: 0.2 }}
               className="font-bold text-2xl"
             >
-              SKILLS
+              {t("skills")}
             </motion.h1>
             {/* SKILL LIST */}
             <motion.div
@@ -159,7 +152,7 @@ const AboutPage = () => {
           </div>
           {/* EXPERIENCE CONTAINER */}
           <div
-            className="flex flex-col gap-12 justify-center pb-48"
+            className="flex flex-col gap-12 justify-center pb-24 xl:pb-36"
             ref={experienceRef}
           >
             {/* EXPERIENCE TITLE */}
@@ -169,7 +162,7 @@ const AboutPage = () => {
               transition={{ delay: 0.2 }}
               className="font-bold text-2xl"
             >
-              EXPERIENCE
+              {t("experience")}
             </motion.h1>
             {/* EXPERIENCE LIST */}
             <motion.div
@@ -179,15 +172,14 @@ const AboutPage = () => {
               {/* EXPERIENCE LIST ITEM */}
               <div className="flex justify-between h-fit">
                 {/* LEFT */}
-                <div className="w-1/3 ">
+                <div className="w-full">
                   {/* JOB TITLE */}
                   <div className="bg-white dark:text-red-900 p-3 w-fit font-semibold rounded-b-lg rounded-s-lg">
-                    Junior Frontend Developer
+                    {t("juniorFrontendDeveloper")}
                   </div>
                   {/* JOB DESC */}
                   <div className="p-3 text-xl italic">
-                    Creating interactive and responsive webpages using React.js
-                    and Next.js
+                    {t("juniorFrontendDeveloperDesc")}
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-xl font-semibold">2024 - 2025</div>
@@ -197,7 +189,7 @@ const AboutPage = () => {
                   </div>
                 </div>
                 {/* CENTER */}
-                <div className="w-1/6 flex justify-center">
+                <div className="w-1/2 flex justify-center">
                   {/* LINE */}
                   <div className="w-1 h-full bg-gray-600 rounded relative">
                     {/* LINE CIRCLE */}

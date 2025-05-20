@@ -2,10 +2,11 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const Homepage = () => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
+
   return (
     <motion.div
       className="h-full"
@@ -22,29 +23,24 @@ const Homepage = () => {
         <div className="h-2/3 lg:h-full lg:w-1/2 flex flex-col gap-4 lg:gap-8 items-center justify-center">
           {/* TITLE */}
           <h1 className="text-4xl md:text-6xl font-bold">
-            Crafting Digital Experiences, Building the Future.
-            {/* {t("heroH1")} */}
+            {t("heroH1")}
+
           </h1>
           {/* DESC */}
-          <p className="md:text-2xl">
-            Welcome to my world of innovation and problem-solving. Explore my
-            portfolio, discover my skills, and let's create something
-            extraordinary together. The future is written in code—let's shape
-            it!
-          </p>
+          <p className="md:text-2xl">{t("heroH2")}</p>
           {/* BUTTONS */}
           <div className="w-full flex gap-4">
             <Link
               href="/portfolio"
               className="p-4 rounded-lg ring-1 ring-black bg-red-950 text-white hover:shadow-xl shadow-red-400"
             >
-              View My Work
+              {t("button1")}
             </Link>
             <Link
               href="/contact"
               className="p-4 rounded-lg ring-1 ring-black dark:ring-red-300 hover:shadow-xl  shadow-red-400"
             >
-              Contact Me
+              {t("button2")}
             </Link>
           </div>
         </div>

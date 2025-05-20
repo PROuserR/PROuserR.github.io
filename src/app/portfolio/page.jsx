@@ -2,56 +2,53 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-
-const returnColor = (lightColor, darkColor) => {
-  return localStorage.theme === "light" ? lightColor : darkColor;
-};
-
-const items = [
-  {
-    id: 1,
-    title: "Instagram Clone",
-    desc: "Experience the best of social media with this full-stack Instagram clone, powered by Django and React.",
-    img: "https://images.pexels.com/photos/5426401/pexels-photo-5426401.jpeg?auto=compress&cs=tinysrgb&w=600",
-    link: "https://github.com/PROuserR/Instagram-Clone-Frontend",
-  },
-  {
-    id: 2,
-    title: "Social Media Platform",
-    desc: "Share your posts and stay on contact with others. ",
-    img: "https://images.pexels.com/photos/1542252/pexels-photo-1542252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    link: "https://github.com/PROuserR/Social-Media-Platform",
-  },
-  {
-    id: 3,
-    title: "Time Managment Table",
-    desc: "Manage your weekly routines and appointments with ease",
-    img: "https://images.pexels.com/photos/6892902/pexels-photo-6892902.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    link: "https://github.com/PROuserR/TimeManagmentTable",
-  },
-  {
-    id: 4,
-    title: "Lyrics-Finder",
-    desc: "Find your next favortie lyrics without hassle or just see what's Hot from Hot Tracks list.",
-    img: "https://images.pexels.com/photos/5118495/pexels-photo-5118495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    link: "https://github.com/PROuserR/Lyrics-Finder",
-    blog: "https://dev.to/prouserr/from-a-few-lines-of-code-to-building-a-whole-functional-website--459e",
-  },
-  {
-    id: 5,
-    title: "Smart Calculator",
-    desc: "Let it do the hard work, from solving equations to image to text conversion...",
-    img: "https://images.pexels.com/photos/3781338/pexels-photo-3781338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    link: "https://github.com/PROuserR/Smart-Calculator",
-    blog: "https://www.codeproject.com/Articles/5370605/Lets-Code-that-Wicked-Cool-Calculator",
-  },
-];
+import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const PortfolioPage = () => {
   const ref = useRef();
+  const { t } = useTranslation();
   const { scrollYProgress } = useScroll({ target: ref });
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
+  const items = [
+    {
+      id: 1,
+      title: t("instagramClone"),
+      desc: t("instagramCloneDesc"),
+      img: "https://images.pexels.com/photos/5426401/pexels-photo-5426401.jpeg?auto=compress&cs=tinysrgb&w=600",
+      link: "https://github.com/PROuserR/Instagram-Clone-Frontend",
+    },
+    {
+      id: 2,
+      title: t("socialMediaPlatform"),
+      desc: t("socialMediaPlatformDesc"),
+      img: "https://images.pexels.com/photos/1542252/pexels-photo-1542252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      link: "https://github.com/PROuserR/Social-Media-Platform",
+    },
+    {
+      id: 3,
+      title: t("timeManagmentTable"),
+      desc: t("timeManagmentTableDesc"),
+      img: "https://images.pexels.com/photos/6892902/pexels-photo-6892902.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      link: "https://github.com/PROuserR/TimeManagmentTable",
+    },
+    {
+      id: 4,
+      title: t("lyricsFinder"),
+      desc: t("lyricsFinderDesc"),
+      img: "https://images.pexels.com/photos/5118495/pexels-photo-5118495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      link: "https://github.com/PROuserR/Lyrics-Finder",
+      blog: "https://dev.to/prouserr/from-a-few-lines-of-code-to-building-a-whole-functional-website--459e",
+    },
+    {
+      id: 5,
+      title: t("smartCalculator"),
+      desc: t("smartCalculatorDesc"),
+      img: "https://images.pexels.com/photos/3781338/pexels-photo-3781338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      link: "https://github.com/PROuserR/Smart-Calculator",
+      blog: "https://www.codeproject.com/Articles/5370605/Lets-Code-that-Wicked-Cool-Calculator",
+    },
+  ];
 
   return (
     <motion.div
@@ -63,7 +60,7 @@ const PortfolioPage = () => {
       <div className="h-[600vh] relative" ref={ref}>
         <div className="absolute left-1/4 top-40 w-1/2 h-80 bg-gradient-to-r from-red-800 to-red-600 dark:from-red-600 dark:to-red-300 blur-3xl rounded-full -z-10 -rotate-[30deg]" />
         <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-6xl xl:text-8xl text-center z-50">
-          Projects 📝
+          {t("projects")} 📝
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div
@@ -118,12 +115,14 @@ const PortfolioPage = () => {
       </div>
       <div className="flex w-screen h-[125vh] gap-16 items-center justify-center text-center">
         <div className="flex flex-col absolute left-2 xl:left-24 z-10 gap-y-12">
-          <h1 className="text-4xl xl:text-6xl italic text-red-950">Do you have a project?</h1>
+          <h1 className="text-4xl xl:text-6xl italic text-red-950">
+            {t("doYouHaveAProject")}
+          </h1>
           <Link
             href="/contact"
             className="text-4xl bg-red-300 dark:bg-red-800 p-4 w-fit mx-auto rounded-2xl hover:shadow-2xl shadow-gray-500"
           >
-            Contact Me
+            {t("button2")}
           </Link>
         </div>
 
