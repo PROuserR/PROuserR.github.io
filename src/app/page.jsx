@@ -1,10 +1,11 @@
 "use client";
-
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+// import { useTranslation } from "react-i18next";
 
 const Homepage = () => {
+  // const { t } = useTranslation();
   return (
     <motion.div
       className="h-full"
@@ -22,6 +23,7 @@ const Homepage = () => {
           {/* TITLE */}
           <h1 className="text-4xl md:text-6xl font-bold">
             Crafting Digital Experiences, Building the Future.
+            {/* {t("heroH1")} */}
           </h1>
           {/* DESC */}
           <p className="md:text-2xl">

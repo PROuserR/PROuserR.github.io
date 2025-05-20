@@ -103,19 +103,32 @@ const Navbar = () => {
       </div>
       {/* LOGO */}
       <div className="md:hidden lg:flex xl:w-1/3">
-        <Image src="/icon.png" className="mx-auto" alt="logo" width={48} height={48} />
+        <Image
+          src="/icon.png"
+          className="mx-auto"
+          alt="logo"
+          width={48}
+          height={48}
+        />
       </div>
       {/* SOCIAL */}
       <div className="hidden justify-end md:flex gap-4 w-1/3">
         <Link href="https://github.com/PROuserR/">
           <Image src="/github.png" alt="" width={24} height={24} />
         </Link>
-        <Link href="/https://www.linkedin.com/in/rami-alshaar-5ab808187/">
+        <Link href="https://www.linkedin.com/in/rami-alshaar-5ab808187/">
           <Image src="/linkedin.png" alt="" width={24} height={24} />
         </Link>
-        <button onClick={toggleDarkMode}>
-          {theme === "light" ? <MdLightMode /> : <MdDarkMode />}
-        </button>
+        <motion.button
+          onClick={toggleDarkMode}
+          whileHover={{ opacity: 0.5, scale: 1.25, rotate: 15 }}
+        >
+          {theme === "light" ? (
+            <MdLightMode className="text-red-900" />
+          ) : (
+            <MdDarkMode className="text-red-200" />
+          )}
+        </motion.button>
       </div>
       {/* RESPONSIVE MENU */}
       <div className="md:hidden">
@@ -149,16 +162,24 @@ const Navbar = () => {
             animate="opened"
             className="absolute top-0 left-0 w-screen h-screen bg-red-950 text-red-200 flex flex-col items-center justify-center gap-6 text-4xl z-40"
           >
-            <button className="absolute left-4 top-6" onClick={toggleDarkMode}>
+            <motion.button
+              className="absolute left-4 top-6"
+              onClick={toggleDarkMode}
+              whileTap={{ opacity: 0.5, scale: 1.25, rotate: 15 }}
+            >
               {theme === "light" ? (
                 <MdLightMode className="w-10 h-10" />
               ) : (
                 <MdDarkMode className="w-10 h-10" />
               )}
-            </button>
+            </motion.button>
             {links.map((link) => (
-              <motion.div variants={listItemVariants} key={link.title} className="p-4">
-                <Link  href={link.url}>{link.title}</Link>
+              <motion.div
+                variants={listItemVariants}
+                key={link.title}
+                className="p-4"
+              >
+                <Link href={link.url}>{link.title}</Link>
               </motion.div>
             ))}
           </motion.div>

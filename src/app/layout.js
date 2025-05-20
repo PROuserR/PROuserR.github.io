@@ -1,6 +1,7 @@
 import { Newsreader } from "next/font/google";
 import "./globals.css";
 import TransitionProvider from "@/components/transitionProvider";
+// import "./i18n"
 
 const NewsreaderFont = Newsreader({ subsets: ["latin"], weight: "400" });
 
