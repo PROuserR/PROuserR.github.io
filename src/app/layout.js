@@ -15,7 +15,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={NewsreaderFont.className}>
+      <body
+        className={`text-red-950 dark:text-red-200 ${NewsreaderFont.className}`}
+      >
         <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>

@@ -6,18 +6,19 @@ import NavLink from "./navLink";
 import { motion } from "framer-motion";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { changeLanguage } from "i18next";
+import { Birthstone } from "next/font/google";
 
 const links = [
   { url: "/", title: "Home" },
   { url: "/about", title: "About" },
-  { url: "/portfolio", title: "Portfolio" },
+  { url: "/projects", title: "Projects" },
   { url: "/contact", title: "Contact" },
 ];
 
+const BirthstoneFont = Birthstone({ subsets: ["latin"], weight: "400" });
+
 const Navbar = () => {
-  const [theme, setTheme] = useState(
-    typeof localStorage != "undefined" ? localStorage.theme : "light"
-  );
+  const [theme, setTheme] = useState("light");
 
   const [open, setOpen] = useState(false);
 
@@ -75,31 +76,14 @@ const Navbar = () => {
   };
 
   const toggleDarkMode = () => {
-    console.log(localStorage.theme);
-    
-    if (localStorage.theme == "light") {
-      localStorage.theme = "dark";
+    if (theme === "light") {
       setTheme("dark");
-    } else if (localStorage.theme == "dark") {
-      localStorage.theme = "light";
+    } else if (theme === "dark") {
       setTheme("light");
-    } else {
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        localStorage.theme = "light";
-        setTheme("light");
-      } else {
-        localStorage.theme = "dark";
-        setTheme("dark");
-      }
     }
 
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    document.documentElement.classList.toggle(
-      "dark",
-      localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-    );
+    document.documentElement.classList.toggle("dark");
   };
 
   const handleLanguageChange = (e) => {
@@ -116,13 +100,11 @@ const Navbar = () => {
       </div>
       {/* LOGO */}
       <div className="md:hidden lg:flex xl:w-1/3">
-        <Image
-          src="/icon.png"
-          className="mx-auto"
-          alt="logo"
-          width={48}
-          height={48}
-        />
+        <span
+          className={`mx-auto text-5xl ${BirthstoneFont.className} hover:blur-[1px]`}
+        >
+          Rami Alshaar
+        </span>
       </div>
       {/* SOCIAL */}
       <div className="hidden justify-end md:flex gap-4 w-1/3">
@@ -136,11 +118,7 @@ const Navbar = () => {
           onClick={toggleDarkMode}
           whileHover={{ opacity: 0.5, scale: 1.25, rotate: 15 }}
         >
-          {theme === "light" ? (
-            <MdLightMode className="text-red-900" />
-          ) : (
-            <MdDarkMode className="text-red-200" />
-          )}
+          {theme === "light" ? <MdLightMode /> : <MdDarkMode />}
         </motion.button>
         <select className="bg-transparent" onChange={handleLanguageChange}>
           <option value="en">English</option>

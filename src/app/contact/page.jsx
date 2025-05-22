@@ -86,9 +86,11 @@ const ContactPage = () => {
             onChange={(e) => setUserEmail(e.target.value)}
           />
           <span>{t("regards")}</span>
-          <button className="bg-red-500 rounded font-semibold p-4">{t("send")}</button>
+          <button className="bg-red-500 rounded font-semibold p-4 hover:opacity-75">
+            {t("send")}
+          </button>
           {success && (
-            <span className="text-green-600 font-semibold">
+            <span className="text-red-600 font-semibold">
               Your message has been sent successfully!
             </span>
           )}

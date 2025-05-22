@@ -58,14 +58,14 @@ const PortfolioPage = () => {
       transition={{ duration: 1 }}
     >
       <div className="h-[600vh] relative" ref={ref}>
-        <div className="absolute left-1/4 top-40 w-1/2 h-80 bg-gradient-to-r from-red-800 to-red-600 dark:from-red-600 dark:to-red-300 blur-3xl rounded-full -z-10 -rotate-[30deg]" />
+        <div className="absolute left-1/4 top-40 sm:top-80 md:top-40 w-1/2 h-80 bg-gradient-to-r from-red-800 to-red-600 dark:from-red-600 dark:to-red-300 blur-3xl rounded-full -z-10 -rotate-[30deg]" />
         <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-6xl xl:text-8xl text-center z-50">
           {t("projects")} 📝
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div
             style={{ x }}
-            className="flex  bg-gradient-to-r from-red-300 to-white text-red-900 dark:text-red-300 dark:from-black dark:to-red-900"
+            className="flex bg-gradient-to-r from-red-300 to-white text-red-900 dark:text-red-300 dark:from-black dark:to-red-900"
           >
             <div className="h-screen w-screen bg-transparent" />
             {items.map((item) => (
@@ -80,18 +80,18 @@ const PortfolioPage = () => {
                     {item.title}
                   </h1>
 
-                  <p className="w-80 md:w96 lg:w-[500px] lg:text-xl xl:text-2xl xl:w-[600px]">
+                  <p className="w-80 md:w-96 lg:w-[500px] text-xl lg:text-2xl xl:text-4xl xl:w-[600px]">
                     {item.desc}
                   </p>
                   <div className="flex gap-x-12">
                     <Link href={item.link} className="w-fit">
-                      <button className="text-lg p-2 md:p-4 md:text-md lg:p-6 lg:text-xl bg-red-900 text-red-300 dark:bg-red-300 dark:text-red-900 font-semibold rounded-xl hover:shadow-xl shadow-red-400">
+                      <button className="text-lg p-2 md:p-4 md:text-md lg:p-6 lg:text-xl bg-red-900 text-red-300 dark:bg-red-300 dark:text-red-900 font-semibold rounded-xl hover:opacity-75">
                         View More 🚀
                       </button>
                     </Link>
                     {item?.blog && (
                       <Link href={item.blog} className="w-fit">
-                        <button className="text-lg p-2 md:p-4 md:text-md lg:p-6 lg:text-xl bg-red-900 text-red-300 dark:bg-red-300 dark:text-red-900 font-semibold rounded-xl hover:shadow-xl shadow-red-400">
+                        <button className="text-lg p-2 md:p-4 md:text-md lg:p-6 lg:text-xl bg-red-900 text-red-300 dark:bg-red-300 dark:text-red-900 font-semibold rounded-xl hover:opacity-75">
                           See Blog 📃
                         </button>
                       </Link>
@@ -105,6 +105,7 @@ const PortfolioPage = () => {
                     alt="project cover"
                     className="shadow-2xl shadow-black object-cover"
                     fill
+                    sizes="w-full"
                   />
                 </div>
               </div>
@@ -120,7 +121,7 @@ const PortfolioPage = () => {
           </h1>
           <Link
             href="/contact"
-            className="text-4xl bg-red-300 dark:bg-red-800 p-4 w-fit mx-auto rounded-2xl hover:shadow-2xl shadow-gray-500"
+            className="text-4xl bg-red-300 dark:bg-red-800 p-4 w-fit mx-auto rounded-2xl hover:shadow-2xl shadow-gray-500 hover:opacity-50"
           >
             {t("button2")}
           </Link>
@@ -130,6 +131,7 @@ const PortfolioPage = () => {
           <Image
             src="https://images.pexels.com/photos/6615234/pexels-photo-6615234.jpeg?auto=compress&cs=tinysrgb&w=3000&lazy=load"
             className="object-cover mix-blend-lighten"
+            alt="Contact background"
             fill
           />
         </div>

@@ -32,13 +32,9 @@ const AboutPage = () => {
             {/* BIOGRAPHY TITLE */}
             <h1 className="font-bold text-4xl">{t("biography")}</h1>
             {/* BIOGRAPHY DESC */}
-            <p className="text-2xl">
-              {t("subBiography")}
-            </p>
+            <p className="text-2xl">{t("subBiography")}</p>
             {/* BIOGRAPHY QUOTE */}
-            <span className="italic text-xl">
-              {t("subBiographyComment")}
-            </span>
+            <span className="italic text-xl">{t("subBiographyComment")}</span>
             {/* BIOGRAPHY SCROLL SVG */}
             <motion.svg
               initial={{ opacity: 0.2, y: 0 }}
