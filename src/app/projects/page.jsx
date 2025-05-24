@@ -60,7 +60,7 @@ const PortfolioPage = () => {
       <div className="h-[600vh] relative" ref={ref}>
         <div className="absolute left-1/4 top-40 sm:top-80 md:top-40 w-1/2 h-80 bg-gradient-to-r from-red-800 to-red-600 dark:from-red-600 dark:to-red-300 blur-3xl rounded-full -z-10 -rotate-[30deg]" />
         <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-6xl xl:text-8xl text-center z-50">
-          {t("projects")} 📝
+          {t("projects")}
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div
@@ -86,13 +86,13 @@ const PortfolioPage = () => {
                   <div className="flex gap-x-12">
                     <Link href={item.link} className="w-fit">
                       <button className="text-lg p-2 md:p-4 md:text-md lg:p-6 lg:text-xl bg-red-900 text-red-300 dark:bg-red-300 dark:text-red-900 font-semibold rounded-xl hover:opacity-75">
-                        View More 🚀
+                        {t("viewMore")}
                       </button>
                     </Link>
                     {item?.blog && (
                       <Link href={item.blog} className="w-fit">
                         <button className="text-lg p-2 md:p-4 md:text-md lg:p-6 lg:text-xl bg-red-900 text-red-300 dark:bg-red-300 dark:text-red-900 font-semibold rounded-xl hover:opacity-75">
-                          See Blog 📃
+                        {t("seeBlog")}
                         </button>
                       </Link>
                     )}

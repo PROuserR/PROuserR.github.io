@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
@@ -19,8 +19,16 @@ const BirthstoneFont = Birthstone({ subsets: ["latin"], weight: "400" });
 
 const Navbar = () => {
   const [theme, setTheme] = useState("light");
-
+  const [lang, setLang] = useState("en");
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setLang(
+      typeof localStorage.getItem("lang") === "undefined"
+        ? "en"
+        : localStorage.getItem("lang")
+    );
+  }, [lang]);
 
   const topVariants = {
     closed: {
@@ -88,6 +96,8 @@ const Navbar = () => {
 
   const handleLanguageChange = (e) => {
     changeLanguage(e.target.value);
+    setLang(e.target.value);
+    localStorage.setItem("lang", e.target.value);
   };
 
   return (
@@ -120,7 +130,11 @@ const Navbar = () => {
         >
           {theme === "light" ? <MdLightMode /> : <MdDarkMode />}
         </motion.button>
-        <select className="bg-transparent" onChange={handleLanguageChange}>
+        <select
+          className="bg-transparent"
+          onChange={handleLanguageChange}
+          value={lang}
+        >
           <option value="en">English</option>
           <option value="ar">Arabic</option>
         </select>
@@ -177,6 +191,14 @@ const Navbar = () => {
                 <Link href={link.url}>{link.title}</Link>
               </motion.div>
             ))}
+            <select
+              className="bg-transparent w-16"
+              onChange={handleLanguageChange}
+              value={lang}
+            >
+              <option value="en">En</option>
+              <option value="ar">Ar</option>
+            </select>
           </motion.div>
         )}
       </div>
