@@ -98,7 +98,7 @@ const translation = {
       smartCalculator: "حاسبة ذكية",
       smartCalculatorDesc:
         "دعه يقوم بالعمل الشاق، من حل المعادلات إلى تحويل الصور إلى نص",
-      doYouHaveAProject: "Do you have a project?",
+      doYouHaveAProject: "هل لديك مشروع؟",
       viewMore: "🚀رؤية المزيد",
       seeBlog: " 📃رؤية المدونة",
     },

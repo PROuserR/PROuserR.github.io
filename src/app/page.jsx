@@ -51,7 +51,7 @@ const Homepage = () => {
             {t("heroH2")}
           </motion.p>
           {/* BUTTONS */}
-          <div className="w-full pb-8 md:pb-0 justify-center items-center md:justify-normal md:items-start flex gap-4">
+          <div className="w-full pb-8 md:pb-0n justify-center items-center md:justify-normal md:items-start flex gap-4">
             <Link href="/projects">
               <motion.button
 

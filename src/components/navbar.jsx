@@ -190,9 +190,9 @@ const Navbar = () => {
               <motion.div
                 variants={listItemVariants}
                 key={link.title}
-                className="p-4"
+                className="p-2"
               >
-                <Link href={link.url}>{link.title}</Link>
+                <Link href={link.url} className="p-4">{link.title}</Link>
               </motion.div>
             ))}
             <motion.div variants={listItemVariants} className="p-4">
