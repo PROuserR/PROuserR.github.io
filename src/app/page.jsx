@@ -18,7 +18,7 @@ const Homepage = () => {
       <div className="h-full flex flex-col gap-y-4 lg:gap-y-0 lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20">
         {/* IMAGE CONTAINER */}
         <motion.div
-          className="h-1/3 lg:h-full lg:w-1/2 relative"
+          className="h-2/3 sm:h-4/5 lg:h-[90%] lg:w-1/2 relative"
           initial={{ y: -400 }}
           transition={{ delay: 0.7, duration: 0.95 }}
           animate={{ y: 0 }}
@@ -31,10 +31,10 @@ const Homepage = () => {
           />
         </motion.div>
         {/* TEXT CONTAINER */}
-        <div className="h-2/3 lg:h-full lg:w-1/2 flex flex-col gap-4 lg:gap-8 items-center justify-center">
+        <div className="h-2/3  text-center md:text-start lg:h-full lg:w-1/2 flex flex-col gap-4 lg:gap-8 items-center justify-center">
           {/* TITLE */}
           <motion.h1
-            className="text-4xl md:text-6xl font-bold xl:mb-4"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold xl:mb-4"
             initial={{ x: 400 }}
             transition={{ delay: 0.7, duration: 0.95 }}
             animate={{ x: 0 }}
@@ -51,7 +51,7 @@ const Homepage = () => {
             {t("heroH2")}
           </motion.p>
           {/* BUTTONS */}
-          <div className="w-full flex gap-4">
+          <div className="w-full justify-center items-center md:justify-normal md:items-start flex gap-4">
             <Link href="/projects">
               <motion.button
 

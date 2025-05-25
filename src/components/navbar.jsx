@@ -7,20 +7,24 @@ import { motion } from "framer-motion";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { changeLanguage } from "i18next";
 import { Birthstone } from "next/font/google";
+import { useTranslation } from "react-i18next";
 
-const links = [
-  { url: "/", title: "Home" },
-  { url: "/about", title: "About" },
-  { url: "/projects", title: "Projects" },
-  { url: "/contact", title: "Contact" },
-];
+
 
 const BirthstoneFont = Birthstone({ subsets: ["latin"], weight: "400" });
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [theme, setTheme] = useState("light");
   const [lang, setLang] = useState("en");
   const [open, setOpen] = useState(false);
+
+  const links = [
+  { url: "/", title: t("home") },
+  { url: "/about", title: t("about") },
+  { url: "/projects", title: t("projectsNav") },
+  { url: "/contact", title: t("contact") },
+];
 
   useEffect(() => {
     setLang(
@@ -111,7 +115,7 @@ const Navbar = () => {
       {/* LOGO */}
       <div className="md:hidden lg:flex xl:w-1/3">
         <span
-          className={`mx-auto text-5xl ${BirthstoneFont.className} hover:blur-[1px]`}
+          className={`mx-auto text-5xl block md:hidden xl:block ${BirthstoneFont.className} hover:blur-[1px]`}
         >
           Rami Alshaar
         </span>
@@ -191,14 +195,16 @@ const Navbar = () => {
                 <Link href={link.url}>{link.title}</Link>
               </motion.div>
             ))}
-            <select
-              className="bg-transparent w-16"
-              onChange={handleLanguageChange}
-              value={lang}
-            >
-              <option value="en">En</option>
-              <option value="ar">Ar</option>
-            </select>
+            <motion.div variants={listItemVariants} className="p-4">
+              <select
+                className="bg-transparent w-16"
+                onChange={handleLanguageChange}
+                value={lang}
+              >
+                <option value="en">En</option>
+                <option value="ar">Ar</option>
+              </select>
+            </motion.div>
           </motion.div>
         )}
       </div>

@@ -4,25 +4,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Birthstone } from "next/font/google";
+
+const BirthstoneFont = Birthstone({ subsets: ["latin"], weight: "400" });
 
 const PortfolioPage = () => {
   const ref = useRef();
   const { t } = useTranslation();
   const { scrollYProgress } = useScroll({ target: ref });
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
+
   const items = [
     {
       id: 1,
       title: t("instagramClone"),
       desc: t("instagramCloneDesc"),
-      img: "https://images.pexels.com/photos/5426401/pexels-photo-5426401.jpeg?auto=compress&cs=tinysrgb&w=600",
+      img: "https://images.pexels.com/photos/5053836/pexels-photo-5053836.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=20",
       link: "https://github.com/PROuserR/Instagram-Clone-Frontend",
     },
     {
       id: 2,
       title: t("socialMediaPlatform"),
       desc: t("socialMediaPlatformDesc"),
-      img: "https://images.pexels.com/photos/1542252/pexels-photo-1542252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      img: "https://images.pexels.com/photos/920382/pexels-photo-920382.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       link: "https://github.com/PROuserR/Social-Media-Platform",
     },
     {
@@ -71,7 +75,7 @@ const PortfolioPage = () => {
             {items.map((item) => (
               <div
                 className={
-                  "h-screen w-screen px-12 gap-x-36 flex items-center justify-center"
+                  "h-screen w-screen px-12 gap-x-36 flex items-center justify-center md:w-[140vw] xl:w-[100vw]"
                 }
                 key={item.id}
               >
@@ -92,14 +96,14 @@ const PortfolioPage = () => {
                     {item?.blog && (
                       <Link href={item.blog} className="w-fit">
                         <button className="text-lg p-2 md:p-4 md:text-md lg:p-6 lg:text-xl bg-red-900 text-red-300 dark:bg-red-300 dark:text-red-900 font-semibold rounded-xl hover:opacity-75">
-                        {t("seeBlog")}
+                          {t("seeBlog")}
                         </button>
                       </Link>
                     )}
                   </div>
                 </div>
 
-                <div className="relative w-[720px] h-[480px]">
+                <div className="relative md:w-[576px] md:h-[384px] lg:w-[720px] lg:h-[480px]">
                   <Image
                     src={item.img}
                     alt="project cover"
@@ -110,10 +114,18 @@ const PortfolioPage = () => {
                 </div>
               </div>
             ))}
-            <div className="h-screen w-screen bg-transparent" />
+            <div
+              className={`flex h-screen w-[175vw] md:w-[160vw] xl:w-screen bg-transparent items-center justify-start text-9xl ${BirthstoneFont.className}`}
+            >
+              <div className="xl:ml-32 ">
+              And More ...
+              </div>
+
+            </div>
           </motion.div>
         </div>
       </div>
+
       <div className="flex w-screen h-[125vh] gap-16 items-center justify-center text-center">
         <div className="flex flex-col absolute left-2 xl:left-24 z-10 gap-y-12">
           <h1 className="text-4xl xl:text-6xl italic text-red-950">

@@ -1,6 +1,11 @@
 const translation = {
   en: {
     translation: {
+      home: "Home",
+      about: "About",
+      projectsNav: "Projects",
+      contact: "Contact",
+      //
       heroH1: "Crafting Digital Experiences, Building the Future.",
       heroH2:
         "Welcome to my world of innovation and problem-solving. Explore my portfolio, discover my skills, and let's create something extraordinary together. The future is written in code—let's shape it!",
@@ -49,6 +54,11 @@ const translation = {
   },
   ar: {
     translation: {
+      home: "الصفحة الرئيسية",
+      about: "حول",
+      projectsNav: "المشاريع",
+      contact: "التواصل",
+      //
       heroH1: "صياغة التجارب الرقمية، بناء المستقبل",
       heroH2:
         "أهلاً بكم في عالمي المتخصص في الابتكار وحل المشكلات. استكشفوا أعمالي، واكتشفوا مهاراتي، ولنبتكر معًا شيئًا استثنائيًا. المستقبل مكتوب بالرموز، فلنصنعه!",
