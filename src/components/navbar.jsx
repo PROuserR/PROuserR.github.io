@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
@@ -191,7 +191,7 @@ const Navbar = () => {
               <select
                 className="bg-transparent w-16"
                 onChange={handleLanguageChange}
-                value={lang}
+                value={locale}
               >
                 <option value="en">En</option>
                 <option value="ar">Ar</option>
