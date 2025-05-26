@@ -3,16 +3,15 @@ import Brain from "@/components/brain";
 import { motion, useInView, useScroll } from "framer-motion";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
+import useStore from "../store";
 
 const AboutPage = () => {
   const containerRef = useRef();
-
+  const {locale} = useStore();
   const { scrollYProgress } = useScroll({ container: containerRef });
   const { t } = useTranslation();
   const skillRef = useRef();
-  // const isSkillRefInView = useInView(skillRef, {once:true});
   const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
-
   const experienceRef = useRef();
   const isExperienceRefInView = useInView(experienceRef, { margin: "-100px" });
 
@@ -24,7 +23,7 @@ const AboutPage = () => {
       transition={{ duration: 1 }}
     >
       {/* CONTAINER */}
-      <div className="h-full overflow-scroll lg:flex" ref={containerRef}>
+      <div className={`lg:flex h-full overflow-scroll ${locale === "en" ? "lg:flex-row lg:text-start" : "lg:flex-row-reverse lg:text-end"}`} ref={containerRef}>
         {/* TEXT CONTAINER */}
         <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:w-2/3 lg:pr-0 xl:w-1/2">
           {/* BIOGRAPHY CONTAINER */}

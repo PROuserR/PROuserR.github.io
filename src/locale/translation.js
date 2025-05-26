@@ -3,7 +3,7 @@ const translation = {
     translation: {
       home: "Home",
       about: "About",
-      projectsNav: "Projects",
+      projectsNav: "My Works",
       contact: "Contact",
       //
       heroH1: "Crafting Digital Experiences, Building the Future.",
@@ -47,16 +47,17 @@ const translation = {
       smartCalculator: "Smart Calculator",
       smartCalculatorDesc:
         "Let it do the hard work, from solving equations to image to text conversion...",
-      doYouHaveAProject: "Do you have a project?",
+      doYouHaveAProject: "Do you have a project in mind?",
       viewMore: "View More 🚀",
       seeBlog: "See Blog 📃",
+      andMore: "And More ...",
     },
   },
   ar: {
     translation: {
       home: "الصفحة الرئيسية",
       about: "حول",
-      projectsNav: "المشاريع",
+      projectsNav: "اعمالي",
       contact: "التواصل",
       //
       heroH1: "صياغة التجارب الرقمية، بناء المستقبل",
@@ -98,9 +99,10 @@ const translation = {
       smartCalculator: "حاسبة ذكية",
       smartCalculatorDesc:
         "دعه يقوم بالعمل الشاق، من حل المعادلات إلى تحويل الصور إلى نص",
-      doYouHaveAProject: "هل لديك مشروع؟",
+      doYouHaveAProject: "هل لديك مشروع في ذهنك؟",
       viewMore: "🚀رؤية المزيد",
       seeBlog: " 📃رؤية المدونة",
+      andMore: "...و المزيد",
     },
   },
 };

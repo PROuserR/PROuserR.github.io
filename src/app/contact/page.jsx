@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useTranslation } from "react-i18next";
+import useStore from "../store";
 
 const ContactPage = () => {
+  const { locale } = useStore();
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const [userMessage, setUserMessage] = useState("");
@@ -41,7 +43,7 @@ const ContactPage = () => {
 
   return (
     <motion.div
-      className="h-full"
+      className={`h-full ${locale === "en" ? "lg:flex-row lg:text-start" : "lg:flex-row-reverse lg:text-end"}`}
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}

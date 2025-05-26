@@ -8,31 +8,22 @@ import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { changeLanguage } from "i18next";
 import { Birthstone } from "next/font/google";
 import { useTranslation } from "react-i18next";
-
-
+import useStore from "@/app/store";
 
 const BirthstoneFont = Birthstone({ subsets: ["latin"], weight: "400" });
 
 const Navbar = () => {
   const { t } = useTranslation();
   const [theme, setTheme] = useState("light");
-  const [lang, setLang] = useState("en");
   const [open, setOpen] = useState(false);
+  const {locale, setLocale} = useStore();
 
   const links = [
-  { url: "/", title: t("home") },
-  { url: "/about", title: t("about") },
-  { url: "/projects", title: t("projectsNav") },
-  { url: "/contact", title: t("contact") },
-];
-
-  useEffect(() => {
-    setLang(
-      typeof localStorage.getItem("lang") === "undefined"
-        ? "en"
-        : localStorage.getItem("lang")
-    );
-  }, [lang]);
+    { url: "/", title: t("home") },
+    { url: "/about", title: t("about") },
+    { url: "/projects", title: t("projectsNav") },
+    { url: "/contact", title: t("contact") },
+  ];
 
   const topVariants = {
     closed: {
@@ -100,14 +91,13 @@ const Navbar = () => {
 
   const handleLanguageChange = (e) => {
     changeLanguage(e.target.value);
-    setLang(e.target.value);
-    localStorage.setItem("lang", e.target.value);
+    setLocale(e.target.value);
   };
 
   return (
-    <div className="h-full w-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 text-2xl">
+    <div className={`h-full w-full flex ${locale === "en" ? "lg:flex-row" : "lg:flex-row-reverse"} items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 text-2xl`}>
       {/* LINKS */}
-      <div className="hidden md:flex gap-4 w-1/3">
+      <div className={`hidden md:flex ${locale === "en" ? "lg:flex-row" : "lg:flex-row-reverse"} gap-4 w-1/3 `}>
         {links.map((link) => (
           <NavLink link={link} key={link.title} />
         ))}
@@ -121,7 +111,7 @@ const Navbar = () => {
         </span>
       </div>
       {/* SOCIAL */}
-      <div className="hidden justify-end md:flex gap-4 w-1/3">
+      <div className={`hidden md:flex gap-4 w-1/3 ${locale === "en" ? "lg:justify-end" : "lg:justify-start"}`}>
         <Link href="https://github.com/PROuserR/">
           <Image src="/github.png" alt="" width={24} height={24} />
         </Link>
@@ -137,7 +127,7 @@ const Navbar = () => {
         <select
           className="bg-transparent"
           onChange={handleLanguageChange}
-          value={lang}
+          value={locale}
         >
           <option value="en">English</option>
           <option value="ar">Arabic</option>
@@ -189,10 +179,12 @@ const Navbar = () => {
             {links.map((link) => (
               <motion.div
                 variants={listItemVariants}
-                key={link.title}
-                className="p-2"
+                key={link.url}
+                className="p-4"
               >
-                <Link href={link.url} className="p-4">{link.title}</Link>
+                <Link href={link.url}  className="p-8">
+                  {link.title}
+                </Link>
               </motion.div>
             ))}
             <motion.div variants={listItemVariants} className="p-4">
